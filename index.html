@@ -82,7 +82,7 @@
 
         /* Header Profil */
         .hero {
-            padding: 140px 20px 40px;
+            padding: 130px 20px 20px;
             text-align: center;
             display: flex;
             flex-direction: column;
@@ -121,19 +121,34 @@
             font-size: 1.1rem;
             color: #38bdf8;
             text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+            margin-bottom: 15px;
+        }
+
+        /* Teks Perkenalan Langsung di Depan */
+        .intro-text {
+            max-width: 700px;
+            margin: 0 auto;
+            color: #e2e8f0;
+            font-size: 1rem;
+            line-height: 1.8;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(10px);
+            padding: 20px 25px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         /* Container Kartu */
         .container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 0 20px 60px;
+            padding: 0 20px 80px;
         }
 
         /* Kartu Tersembunyi Secara Default */
         .glass-card {
-            display: none; /* Menyembunyikan kotak secara bawaan */
-            background: rgba(15, 23, 42, 0.75);
+            display: none;
+            background: rgba(15, 23, 42, 0.85);
             backdrop-filter: blur(16px);
             border-radius: 20px;
             padding: 35px;
@@ -144,7 +159,6 @@
             animation: fadeIn 0.4s ease-in-out forwards;
         }
 
-        /* Efek saat kartu muncul */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -236,34 +250,29 @@
     <nav>
         <div class="logo" onclick="hideAllCards()">SELAMAT DATANG</div>
         <div class="nav-links">
-            <button onclick="showSection('tentang', this)">Tentang</button>
             <button onclick="showSection('tugas', this)">Tugas & Peran</button>
             <button onclick="showSection('galeri', this)">Kegiatan</button>
             <button onclick="showSection('kontak', this)">Kontak</button>
         </div>
     </nav>
 
-    <!-- Profil Utama -->
+    <!-- Profil Utama & Deskripsi Langsung di Depan -->
     <header class="hero">
         <div class="profile-pic-container">
-            <img src="images/mila.jpeg" alt="Siti Mukamilah, M.Pd." class="profile-pic" onerror="this.src='https://via.placeholder.com/150?text=Foto+Profil'">
+            <img src="mila.jpeg" alt="Siti Mukamilah, M.Pd." class="profile-pic" onerror="this.src='https://via.placeholder.com/150?text=Foto+Profil'">
         </div>
         <h1>Siti Mukamilah, M.Pd.</h1>
         <p class="title-sub">Dosen Pendidikan Bahasa Inggris | Universitas Islam Madura</p>
+        
+        <!-- Teks Tentang Saya Langsung Muncul -->
+        <div class="intro-text">
+            <p>Selamat datang di blog pribadi saya. Saya <strong>Siti Mukamilah, M.Pd.</strong>, seorang dosen Pendidikan Bahasa Inggris di Universitas Islam Madura (UIM) yang berdedikasi dalam pengajaran, pengembangan literasi bahasa, dan integrasi pembelajaran lintas disiplin.</p>
+        </div>
     </header>
 
     <div class="container">
         
-        <!-- Section 1: Tentang Saya -->
-        <section id="tentang" class="glass-card">
-            <button class="close-btn" onclick="hideAllCards()">&times;</button>
-            <h2 class="section-title">Tentang Saya</h2>
-            <div class="about-text">
-                <p>Selamat datang di blog pribadi saya. Saya <strong>Siti Mukamilah, M.Pd.</strong>, seorang dosen Pendidikan Bahasa Inggris di Universitas Islam Madura (UIM) yang berdedikasi dalam pengajaran, pengembangan literasi bahasa, dan integrasi pembelajaran lintas disiplin.</p>
-            </div>
-        </section>
-
-        <!-- Section 2: Tugas dan Peran -->
+        <!-- Section 1: Tugas dan Peran -->
         <section id="tugas" class="glass-card">
             <button class="close-btn" onclick="hideAllCards()">&times;</button>
             <h2 class="section-title">Tugas & Peran Akademik</h2>
@@ -273,19 +282,19 @@
             </div>
         </section>
 
-        <!-- Section 3: Galeri Foto -->
+        <!-- Section 2: Galeri Foto -->
         <section id="galeri" class="glass-card">
             <button class="close-btn" onclick="hideAllCards()">&times;</button>
             <h2 class="section-title">Galeri Kegiatan</h2>
             <p style="color: #94a3b8; margin-bottom: 15px;">Dokumentasi kegiatan akademik dan pengabdian masyarakat:</p>
             <div class="gallery-grid">
-                <div class="gallery-item"><img src="images/mila.jpeg" onerror="this.src='https://via.placeholder.com/300x200?text=Kegiatan+1'"></div>
-                <div class="gallery-item"><img src="images/foto2.jpg" onerror="this.src='https://via.placeholder.com/300x200?text=Kegiatan+2'"></div>
-                <div class="gallery-item"><img src="images/foto3.jpg" onerror="this.src='https://via.placeholder.com/300x200?text=Kegiatan+3'"></div>
+                <div class="gallery-item"><img src="mila.jpeg" onerror="this.src='https://via.placeholder.com/300x200?text=Kegiatan+1'"></div>
+                <div class="gallery-item"><img src="foto2.jpg" onerror="this.src='https://via.placeholder.com/300x200?text=Kegiatan+2'"></div>
+                <div class="gallery-item"><img src="foto3.jpg" onerror="this.src='https://via.placeholder.com/300x200?text=Kegiatan+3'"></div>
             </div>
         </section>
 
-        <!-- Section 4: Kontak -->
+        <!-- Section 3: Kontak -->
         <section id="kontak" class="glass-card">
             <button class="close-btn" onclick="hideAllCards()">&times;</button>
             <h2 class="section-title">Kontak & Alamat Kampus</h2>
@@ -320,19 +329,16 @@
 
         // Fungsi Menampilkan Kotak Konten Saat Tombol Diklik
         function showSection(id, btnElement) {
-            // Sembunyikan semua section terlebih dahulu
             var cards = document.querySelectorAll('.glass-card');
             cards.forEach(function(card) {
                 card.style.display = 'none';
             });
 
-            // Hilangkan status aktif dari semua tombol menu
             var buttons = document.querySelectorAll('.nav-links button');
             buttons.forEach(function(btn) {
                 btn.classList.remove('active');
             });
 
-            // Tampilkan section yang dipilih & beri status aktif pada tombol
             document.getElementById(id).style.display = 'block';
             btnElement.classList.add('active');
         }
