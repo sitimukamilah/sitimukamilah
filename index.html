@@ -3,174 +3,314 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Siti Mukamilah, M.Pd. - Academic Blog</title>
+    <title>Siti Mukamilah, M.Pd. | Digital Profile</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif; /* Menggunakan font yang lebih modern */
         }
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
         body {
-            background-color: #f4f6f9;
-            color: #333;
-            line-height: 1.6;
+            /* Background gradasi modern dengan tekstur samar */
+            background: #e0eafc; 
+            background: -webkit-linear-gradient(to right, #cfdef3, #e0eafc); 
+            background: linear-gradient(to right, #cfdef3, #e0eafc);
+            color: #2c3e50;
+            min-height: 100vh;
         }
 
-        /* Header / Hero Section */
-        header {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-            text-align: center;
-            padding: 60px 20px;
+        /* Navigasi / Header */
+        nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px); /* Efek blur kaca */
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+        .logo {
             font-weight: 700;
-        }
-
-        header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Container Layout */
-        .container {
-            max-width: 1000px;
-            margin: 30px auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 30px;
-        }
-
-        /* Main Content Card */
-        .main-card {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-
-        .main-card h2 {
-            color: #1e3c72;
-            margin-bottom: 15px;
-            border-bottom: 2px solid #2a5298;
-            padding-bottom: 8px;
-        }
-
-        .main-card p {
-            margin-bottom: 15px;
-            text-align: justify;
-        }
-
-        /* Sidebar Cards */
-        .sidebar-card {
-            background: white;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            margin-bottom: 20px;
-        }
-
-        .sidebar-card h3 {
-            color: #1e3c72;
-            margin-bottom: 12px;
             font-size: 1.2rem;
+            color: #1a237e;
         }
 
-        .badge-list {
+        .nav-links {
+            display: flex;
+            gap: 20px;
             list-style: none;
         }
 
-        .badge-list li {
-            background: #eef2f5;
-            margin-bottom: 8px;
-            padding: 8px 12px;
-            border-radius: 6px;
+        .nav-links a {
+            text-decoration: none;
+            color: #34495e;
+            font-weight: 400;
             font-size: 0.9rem;
-            color: #2a5298;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #1a237e;
             font-weight: 600;
         }
 
-        /* Footer */
-        footer {
+        /* Bagian Utama (Hero) */
+        .hero {
+            padding: 150px 20px 100px;
             text-align: center;
-            padding: 20px;
-            background: #1e3c72;
-            color: white;
-            margin-top: 50px;
-            font-size: 0.9rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        /* Responsive HP */
-        @media (max-width: 768px) {
-            .container {
+        /* Area Foto Profil */
+        .profile-pic-container {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid white;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin-bottom: 25px;
+            transition: transform 0.3s ease;
+            background-color: #f0f0f0; /* Warna dasar jika foto belum ada */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-pic-container:hover {
+            transform: scale(1.05); /* Sedikit membesar saat di-hover */
+        }
+
+        .profile-pic {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-placeholder {
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: #1a237e;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+
+        .hero p.title-sub {
+            font-size: 1.2rem;
+            color: #546e7a;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        /* Bagian Konten (Profil Lengkap & Bidang) */
+        .content-section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        /* Kartu dengan efek Glassmorphism */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.03);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+        }
+
+        .main-about h2 {
+            font-size: 1.8rem;
+            color: #1a237e;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .main-about p {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: #34495e;
+            text-align: justify;
+        }
+
+        .sidebar h3 {
+            font-size: 1.3rem;
+            color: #1a237e;
+            margin-bottom: 20px;
+        }
+
+        /* Tag Bidang yang Modern */
+        .tag-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag-list li {
+            background: #fff;
+            padding: 8px 15px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: #1a237e;
+            font-weight: 500;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+
+        .tag-list li:hover {
+            background: #1a237e;
+            color: #fff;
+            border-color: #1a237e;
+        }
+
+        /* Bagian Blog yang Modern */
+        .blog-section {
+            max-width: 1100px;
+            margin: 60px auto 100px;
+            padding: 0 20px;
+        }
+
+        .blog-section h2 {
+            text-align: center;
+            font-size: 2rem;
+            color: #1a237e;
+            margin-bottom: 40px;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .blog-card {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: #2c3e50;
+            border: 1px solid #f0f0f0;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .blog-thumb-placeholder {
+            height: 150px;
+            background: #e3f2fd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #1a237e;
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+
+        .blog-details {
+            padding: 20px;
+        }
+
+        .blog-date {
+            font-size: 0.75rem;
+            color: #888;
+            margin-bottom: 5px;
+        }
+
+        .blog-details h4 {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .blog-details p {
+            font-size: 0.85rem;
+            color: #666;
+            line-height: 1.5;
+            display: -webkit-box; /* Potong teks jika terlalu panjang */
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Footer Modern */
+        footer {
+            background: #1a237e;
+            color: rgba(255,255,255,0.8);
+            text-align: center;
+            padding: 40px;
+            font-size: 0.85rem;
+        }
+
+        /* Responsif untuk HP */
+        @media (max-width: 900px) {
+            .content-section {
                 grid-template-columns: 1fr;
             }
-            header h1 {
-                font-size: 1.8rem;
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav { padding: 15px 20px; }
+            .nav-links { gap: 10px; font-size: 0.8rem; }
+            .hero h1 { font-size: 2rem; }
+            .hero p.title-sub { font-size: 1rem; }
+            .hero { padding-top: 100px; }
+            .blog-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header / Profil Utama -->
-    <header>
-        <h1>Siti Mukamilah, M.Pd.</h1>
-        <p>Dosen Pendidikan Bahasa Inggris | Universitas Islam Madura</p>
-    </header>
+    <!-- Navigasi -->
+    <nav>
+        <div class="logo">SitiMukamilah.digital</div>
+        <ul class="nav-links">
+            <li><a href="#about">Tentang</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+    </nav>
 
-    <!-- Isi Utama Blog -->
-    <div class="container">
-        
-        <!-- Kolom Utama (Tentang Saya) -->
-        <main class="main-card">
-            <h2>Selamat Datang</h2>
-            <p>
-                Selamat datang di blog pribadi saya. Saya <strong>Siti Mukamilah, M.Pd.</strong>, seorang dosen Pendidikan Bahasa Inggris di Universitas Islam Madura (UIM) yang berdedikasi dalam pengajaran, pengembangan literasi bahasa, dan integrasi pembelajaran lintas disiplin.
-            </p>
-            <p>
-                Selain menjalankan Tri Dharma Perguruan Tinggi di program studi utama, saya juga mengemban tugas tambahan di <strong>Lembaga Penelitian dan Pengabdian kepada Masyarakat (LP2M)</strong> UIM untuk memfasilitasi riset inovatif serta pengabdian yang berdampak bagi masyarakat.
-            </p>
-            <p>
-                Di samping itu, saya dipercaya mengampu mata kuliah Bahasa Inggris di <strong>Fakultas Teknik</strong>, di mana saya fokus membekali mahasiswa dengan kemampuan <em>English for Specific Purposes (ESP)</em>—khususnya istilah teknis, pemahaman literatur ilmiah, dan komunikasi profesional di dunia keinsinyuran.
-            </p>
-        </main>
-
-        <!-- Sidebar (Informasi Ringkas) -->
-        <aside>
-            <div class="sidebar-card">
-                <h3>Bidang Faktual</h3>
-                <ul class="badge-list">
-                    <li>Pendidikan Bahasa Inggris</li>
-                    <li>English for Specific Purposes (ESP)</li>
-                    <li>LP2M UIM</li>
-                    <li>Fakultas Teknik</li>
-                </ul>
-            </div>
-
-            <div class="sidebar-card">
-                <h3>Kontak & Kampus</h3>
-                <p style="font-size: 0.9rem;">
-                    <strong>Universitas Islam Madura</strong><br>
-                    Jl. PP. Miftahul Ulum Bettet, Pamekasan, Jawa Timur.
-                </p>
-            </div>
-        </aside>
-
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Siti Mukamilah, M.Pd. All Rights Reserved.</p>
-    </footer>
-
-</body>
-</html>
+    <!-- Bagian Hero / Judul Utama -->
+    <header class="hero">
+        <div class="profile-pic-container">
+            <!-- PETUNJUK FOTO: Ganti 'nama_foto_anda.jpg' dengan nama file foto asli yang Ibu upload ke GitHub -->
+            <img src="nama_foto_anda.jpg" alt="Siti Mukamilah" class="profile-pic" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <div class="profile-placeholder" style="display:none;">[Foto Ibu]</div>
+        </div>
+        <h1>Siti Mukamilah, M.Pd.
