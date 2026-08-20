@@ -3,8 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Siti Mukamilah, M.Pd. | Digital Profile</title>
+    <title>Siti Mukamilah, M.Pd. | Digital Profile 3D</title>
+    
+    <!-- Font & Pustaka 3D (Three.js & Vanta.js) -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+
     <style>
         * {
             margin: 0;
@@ -14,18 +19,28 @@
         }
 
         html {
-            scroll-behavior: smooth; /* Efek bergeser halus saat menu diklik */
+            scroll-behavior: smooth;
+        }
+
+        /* Container untuk efek 3D bergerak di seluruh latar belakang */
+        #vanta-bg {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            z-index: -1; /* Berada di paling belakang */
         }
 
         body {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             color: #f8fafc;
             min-height: 100vh;
+            overflow-x: hidden;
         }
 
-        /* Navigasi Melayang */
+        /* Navigasi Melayang Transparan */
         nav {
-            background: rgba(15, 23, 42, 0.85);
+            background: rgba(15, 23, 42, 0.75);
             backdrop-filter: blur(12px);
             padding: 15px 5%;
             display: flex;
@@ -64,7 +79,7 @@
 
         /* Header / Profil Utama */
         .hero {
-            padding: 160px 20px 80px;
+            padding: 160px 20px 60px;
             text-align: center;
             display: flex;
             flex-direction: column;
@@ -76,14 +91,14 @@
             height: 160px;
             border-radius: 50%;
             border: 4px solid #38bdf8;
-            box-shadow: 0 0 25px rgba(56, 189, 248, 0.3);
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.5);
             overflow: hidden;
             margin-bottom: 25px;
             transition: transform 0.3s ease;
         }
 
         .profile-pic-container:hover {
-            transform: scale(1.05);
+            transform: scale(1.08);
         }
 
         .profile-pic {
@@ -94,7 +109,8 @@
 
         .hero h1 {
             font-size: 2.5rem;
-            color: #f8fafc;
+            color: #ffffff;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
             margin-bottom: 10px;
         }
 
@@ -102,36 +118,42 @@
             font-size: 1.1rem;
             color: #38bdf8;
             margin-bottom: 20px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
         }
 
-        /* Layout Kartu Kaca (Glassmorphism) */
+        /* Kartu Efek Kaca (Glassmorphism 3D Look) */
         .container {
             max-width: 1100px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 20px;
         }
 
         .glass-card {
-            background: rgba(30, 41, 59, 0.7);
-            backdrop-filter: blur(10px);
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(16px);
             border-radius: 20px;
             padding: 40px;
             margin-bottom: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
         }
 
         .section-title {
             font-size: 1.8rem;
             color: #38bdf8;
             margin-bottom: 20px;
-            border-bottom: 2px solid rgba(56, 189, 248, 0.2);
+            border-bottom: 2px solid rgba(56, 189, 248, 0.3);
             padding-bottom: 10px;
         }
 
         .about-text p {
             line-height: 1.8;
-            color: #cbd5e1;
+            color: #e2e8f0;
             margin-bottom: 15px;
             text-align: justify;
         }
@@ -148,7 +170,8 @@
             border-radius: 12px;
             overflow: hidden;
             height: 200px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
         }
 
         .gallery-item img {
@@ -166,10 +189,10 @@
         footer {
             text-align: center;
             padding: 30px;
-            background: #0f172a;
-            color: #64748b;
+            background: rgba(15, 23, 42, 0.9);
+            color: #94a3b8;
             font-size: 0.9rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         @media (max-width: 768px) {
@@ -180,7 +203,10 @@
 </head>
 <body>
 
-    <!-- Navigasi Utama -->
+    <!-- Elemen Tempat Latar Belakang 3D Berada -->
+    <div id="vanta-bg"></div>
+
+    <!-- Navigasi -->
     <nav>
         <div class="logo">Siti Mukamilah</div>
         <ul class="nav-links">
@@ -194,7 +220,6 @@
     <!-- Header Profil -->
     <header class="hero">
         <div class="profile-pic-container">
-            <!-- Menampilkan foto utama Anda di folder images -->
             <img src="images/foto.jpg" alt="Siti Mukamilah, M.Pd." class="profile-pic" onerror="this.src='https://via.placeholder.com/160?text=Foto+Profil'">
         </div>
         <h1>Siti Mukamilah, M.Pd.</h1>
@@ -234,7 +259,7 @@
         <!-- Bagian Kontak -->
         <section id="kontak" class="glass-card">
             <h2 class="section-title">Kontak & Alamat Kampus</h2>
-            <p style="color: #cbd5e1;"><strong>Universitas Islam Madura (UIM)</strong></p>
+            <p style="color: #e2e8f0;"><strong>Universitas Islam Madura (UIM)</strong></p>
             <p style="color: #94a3b8;">Jl. PP. Miftahul Ulum Bettet, Pamekasan, Jawa Timur</p>
         </section>
 
@@ -244,5 +269,23 @@
         <p>&copy; 2026 Siti Mukamilah, M.Pd. - Universitas Islam Madura</p>
     </footer>
 
+    <!-- Script Pengendali Animasi 3D -->
+    <script>
+        VANTA.NET({
+            el: "#vanta-bg",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x38bdf8,         /* Warna garis 3D (Biru Cerah) */
+            backgroundColor: 0x0f172a, /* Warna latar belakang (Biru Gelap) */
+            points: 12.00,           /* Jumlah titik 3D */
+            maxDistance: 22.00,      /* Jarak antar jaring */
+            spacing: 16.00
+        })
+    </script>
 </body>
 </html>
