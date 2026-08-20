@@ -250,6 +250,45 @@
             line-height: 1.4;
         }
 
+        /* Gaya Tombol Kontak */
+        .contact-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .wa-btn {
+            background-color: #25d366;
+            color: #ffffff;
+        }
+
+        .wa-btn:hover {
+            background-color: #1da851;
+            transform: translateY(-2px);
+        }
+
+        .email-btn {
+            background-color: #38bdf8;
+            color: #0f172a;
+        }
+
+        .email-btn:hover {
+            background-color: #0284c7;
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
         /* Footer */
         footer {
             text-align: center;
@@ -352,27 +391,27 @@
             </div>
         </section>
 
-        <!-- Section 3: Kontak -->
-       <!-- Section 3: Kontak & WhatsApp -->
+        <!-- Section 3: Kontak & WhatsApp -->
         <section id="kontak" class="glass-card">
             <button class="close-btn" onclick="hideAllCards()">&times;</button>
             <h2 class="section-title">Kontak & Alamat Kampus</h2>
             
             <p style="color: #e2e8f0; margin-bottom: 5px;"><strong>Universitas Islam Madura (UIM)</strong></p>
-            <p style="color: #94a3b8; margin-bottom: 20px;">Jl. PP. Miftahul Ulum Bettet, Pamekasan, Jawa Timur</p>
+            <p style="color: #94a3b8; margin-bottom: 15px;">Jl. PP. Miftahul Ulum Bettet, Pamekasan, Jawa Timur</p>
 
             <div class="contact-buttons">
-                <!-- Tombol WhatsApp -->
-                <a href="https://wa.me/628999910186" target="_blank" class="contact-btn wa-btn">
+                <!-- Ubah nomor 6281234567890 sesuai nomor WA Anda -->
+                <a href="https://wa.me/6281234567890" target="_blank" class="contact-btn wa-btn">
                     💬 Hubungi via WhatsApp
                 </a>
                 
-                <!-- Tombol Email -->
-                <a href="r.yanto23@yahoo.com" class="contact-btn email-btn">
+                <!-- Ubah emailanda@uim.ac.id sesuai alamat email Anda -->
+                <a href="mailto:emailanda@uim.ac.id" class="contact-btn email-btn">
                     ✉️ Kirim Email
                 </a>
             </div>
         </section>
+
     </div>
 
     <footer>
@@ -425,44 +464,6 @@
             buttons.forEach(function(btn) {
                 btn.classList.remove('active');
             });
-        }
-        /* Gaya Tombol Kontak */
-        .contact-buttons {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin-top: 15px;
-        }
-
-        .contact-btn {
-            display: inline-block;
-            padding: 10px 20px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-        }
-
-        .wa-btn {
-            background-color: #25d366;
-            color: #ffffff;
-        }
-
-        .wa-btn:hover {
-            background-color: #1da851;
-            transform: translateY(-2px);
-        }
-
-        .email-btn {
-            background-color: #38bdf8;
-            color: #0f172a;
-        }
-
-        .email-btn:hover {
-            background-color: #0284c7;
-            color: #ffffff;
-            transform: translateY(-2px);
         }
     </script>
 </body>
