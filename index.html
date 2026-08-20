@@ -18,18 +18,14 @@
             font-family: 'Poppins', sans-serif;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Container untuk efek 3D bergerak di seluruh latar belakang */
+        /* Latar Belakang 3D Berjalan */
         #vanta-bg {
             position: fixed;
             width: 100vw;
             height: 100vh;
             top: 0;
             left: 0;
-            z-index: -1; /* Berada di paling belakang */
+            z-index: -1;
         }
 
         body {
@@ -38,9 +34,9 @@
             overflow-x: hidden;
         }
 
-        /* Navigasi Melayang Transparan */
+        /* Navigasi Melayang */
         nav {
-            background: rgba(15, 23, 42, 0.75);
+            background: rgba(15, 23, 42, 0.85);
             backdrop-filter: blur(12px);
             padding: 15px 5%;
             display: flex;
@@ -57,29 +53,36 @@
             font-weight: 700;
             font-size: 1.2rem;
             color: #38bdf8;
+            cursor: pointer;
         }
 
         .nav-links {
             display: flex;
-            gap: 25px;
+            gap: 20px;
             list-style: none;
         }
 
-        .nav-links a {
-            text-decoration: none;
+        .nav-links button {
+            background: transparent;
+            border: 1px solid transparent;
             color: #94a3b8;
             font-weight: 500;
             font-size: 0.95rem;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
             transition: all 0.3s ease;
         }
 
-        .nav-links a:hover {
+        .nav-links button:hover, .nav-links button.active {
             color: #38bdf8;
+            border-color: #38bdf8;
+            background: rgba(56, 189, 248, 0.1);
         }
 
-        /* Header / Profil Utama */
+        /* Header Profil */
         .hero {
-            padding: 160px 20px 60px;
+            padding: 140px 20px 40px;
             text-align: center;
             display: flex;
             flex-direction: column;
@@ -87,18 +90,18 @@
         }
 
         .profile-pic-container {
-            width: 160px;
-            height: 160px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             border: 4px solid #38bdf8;
             box-shadow: 0 0 30px rgba(56, 189, 248, 0.5);
             overflow: hidden;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             transition: transform 0.3s ease;
         }
 
         .profile-pic-container:hover {
-            transform: scale(1.08);
+            transform: scale(1.05);
         }
 
         .profile-pic {
@@ -108,47 +111,68 @@
         }
 
         .hero h1 {
-            font-size: 2.5rem;
+            font-size: 2.3rem;
             color: #ffffff;
             text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .hero p.title-sub {
             font-size: 1.1rem;
             color: #38bdf8;
-            margin-bottom: 20px;
             text-shadow: 0 2px 5px rgba(0,0,0,0.5);
         }
 
-        /* Kartu Efek Kaca (Glassmorphism 3D Look) */
+        /* Container Kartu */
         .container {
-            max-width: 1100px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 20px 60px;
         }
 
+        /* Kartu Tersembunyi Secara Default */
         .glass-card {
-            background: rgba(15, 23, 42, 0.65);
+            display: none; /* Menyembunyikan kotak secara bawaan */
+            background: rgba(15, 23, 42, 0.75);
             backdrop-filter: blur(16px);
             border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 40px;
+            padding: 35px;
+            margin-top: 20px;
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s ease;
+            position: relative;
+            animation: fadeIn 0.4s ease-in-out forwards;
         }
 
-        .glass-card:hover {
-            transform: translateY(-5px);
+        /* Efek saat kartu muncul */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .section-title {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             color: #38bdf8;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             border-bottom: 2px solid rgba(56, 189, 248, 0.3);
             padding-bottom: 10px;
+        }
+
+        /* Tombol Tutup Kotak (X) */
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            background: none;
+            border: none;
+            color: #94a3b8;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-btn:hover {
+            color: #ef4444;
         }
 
         .about-text p {
@@ -158,20 +182,19 @@
             text-align: justify;
         }
 
-        /* Grid Galeri Foto */
+        /* Galeri Foto */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
             margin-top: 20px;
         }
 
         .gallery-item {
             border-radius: 12px;
             overflow: hidden;
-            height: 200px;
+            height: 180px;
             border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
         }
 
         .gallery-item img {
@@ -188,39 +211,42 @@
         /* Footer */
         footer {
             text-align: center;
-            padding: 30px;
+            padding: 20px;
             background: rgba(15, 23, 42, 0.9);
             color: #94a3b8;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 1.8rem; }
-            .nav-links { gap: 15px; font-size: 0.85rem; }
+            .hero h1 { font-size: 1.6rem; }
+            .nav-links button { font-size: 0.8rem; padding: 6px 10px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Elemen Tempat Latar Belakang 3D Berada -->
+    <!-- Canvas Latar Belakang 3D -->
     <div id="vanta-bg"></div>
 
-    <!-- Navigasi -->
+    <!-- Navigasi Utama -->
     <nav>
-        <div class="logo">Siti Mukamilah</div>
-        <ul class="nav-links">
-            <li><a href="#tentang">Tentang</a></li>
-            <li><a href="#tugas">Tugas & Peran</a></li>
-            <li><a href="#galeri">Galeri Foto</a></li>
-            <li><a href="#kontak">Kontak</a></li>
-        </ul>
+        <div class="logo" onclick="hideAllCards()">Siti Mukamilah</div>
+        <div class="nav-links">
+            <button onclick="showSection('tentang', this)">Tentang</button>
+            <button onclick="showSection('tugas', this)">Tugas & Peran</button>
+            <button onclick="showSection('galeri', this)">Kegiatan</button>
+            <button onclick="showSection('kontak', this)">Kontak</button>
+        </div>
     </nav>
 
-    <!-- Header Profil -->
+    <!-- Profil Utama -->
     <header class="hero">
         <div class="profile-pic-container">
-            <img src="images/mila.jpeg" alt="Siti Mukamilah, M.Pd." class="profile-pic" onerror="this.src='https://via.placeholder.com/160?text=Foto+Profil'">
+            <img src="images/mila.jpeg" alt="Siti Mukamilah, M.Pd." class="profile-pic" onerror="this.src='https://via.placeholder.com/150?text=Foto+Profil'">
         </div>
         <h1>Siti Mukamilah, M.Pd.</h1>
         <p class="title-sub">Dosen Pendidikan Bahasa Inggris | Universitas Islam Madura</p>
@@ -228,16 +254,18 @@
 
     <div class="container">
         
-        <!-- Bagian Tentang Saya -->
+        <!-- Section 1: Tentang Saya -->
         <section id="tentang" class="glass-card">
+            <button class="close-btn" onclick="hideAllCards()">&times;</button>
             <h2 class="section-title">Tentang Saya</h2>
             <div class="about-text">
                 <p>Selamat datang di blog pribadi saya. Saya <strong>Siti Mukamilah, M.Pd.</strong>, seorang dosen Pendidikan Bahasa Inggris di Universitas Islam Madura (UIM) yang berdedikasi dalam pengajaran, pengembangan literasi bahasa, dan integrasi pembelajaran lintas disiplin.</p>
             </div>
         </section>
 
-        <!-- Bagian Tugas dan Peran -->
+        <!-- Section 2: Tugas dan Peran -->
         <section id="tugas" class="glass-card">
+            <button class="close-btn" onclick="hideAllCards()">&times;</button>
             <h2 class="section-title">Tugas & Peran Akademik</h2>
             <div class="about-text">
                 <p><strong> LP2M UIM:</strong> Mengemban tugas tambahan di Lembaga Penelitian dan Pengabdian kepada Masyarakat untuk memfasilitasi riset inovatif serta pengabdian yang berdampak bagi masyarakat.</p>
@@ -245,8 +273,9 @@
             </div>
         </section>
 
-        <!-- Bagian Galeri Foto -->
+        <!-- Section 3: Galeri Foto -->
         <section id="galeri" class="glass-card">
+            <button class="close-btn" onclick="hideAllCards()">&times;</button>
             <h2 class="section-title">Galeri Kegiatan</h2>
             <p style="color: #94a3b8; margin-bottom: 15px;">Dokumentasi kegiatan akademik dan pengabdian masyarakat:</p>
             <div class="gallery-grid">
@@ -256,8 +285,9 @@
             </div>
         </section>
 
-        <!-- Bagian Kontak -->
+        <!-- Section 4: Kontak -->
         <section id="kontak" class="glass-card">
+            <button class="close-btn" onclick="hideAllCards()">&times;</button>
             <h2 class="section-title">Kontak & Alamat Kampus</h2>
             <p style="color: #e2e8f0;"><strong>Universitas Islam Madura (UIM)</strong></p>
             <p style="color: #94a3b8;">Jl. PP. Miftahul Ulum Bettet, Pamekasan, Jawa Timur</p>
@@ -269,8 +299,9 @@
         <p>&copy; 2026 Siti Mukamilah, M.Pd. - Universitas Islam Madura</p>
     </footer>
 
-    <!-- Script Pengendali Animasi 3D -->
+    <!-- Script Pengendali Tampilan & Animasi 3D -->
     <script>
+        // Animasi 3D Latar Belakang
         VANTA.NET({
             el: "#vanta-bg",
             mouseControls: true,
@@ -280,12 +311,44 @@
             minWidth: 200.00,
             scale: 1.00,
             scaleMobile: 1.00,
-            color: 0x38bdf8,         /* Warna garis 3D (Biru Cerah) */
-            backgroundColor: 0x0f172a, /* Warna latar belakang (Biru Gelap) */
-            points: 12.00,           /* Jumlah titik 3D */
-            maxDistance: 22.00,      /* Jarak antar jaring */
+            color: 0x38bdf8,
+            backgroundColor: 0x0f172a,
+            points: 12.00,
+            maxDistance: 22.00,
             spacing: 16.00
-        })
+        });
+
+        // Fungsi Menampilkan Kotak Konten Saat Tombol Diklik
+        function showSection(id, btnElement) {
+            // Sembunyikan semua section terlebih dahulu
+            var cards = document.querySelectorAll('.glass-card');
+            cards.forEach(function(card) {
+                card.style.display = 'none';
+            });
+
+            // Hilangkan status aktif dari semua tombol menu
+            var buttons = document.querySelectorAll('.nav-links button');
+            buttons.forEach(function(btn) {
+                btn.classList.remove('active');
+            });
+
+            // Tampilkan section yang dipilih & beri status aktif pada tombol
+            document.getElementById(id).style.display = 'block';
+            btnElement.classList.add('active');
+        }
+
+        // Fungsi Menyembunyikan Semua Kotak
+        function hideAllCards() {
+            var cards = document.querySelectorAll('.glass-card');
+            cards.forEach(function(card) {
+                card.style.display = 'none';
+            });
+
+            var buttons = document.querySelectorAll('.nav-links button');
+            buttons.forEach(function(btn) {
+                btn.classList.remove('active');
+            });
+        }
     </script>
 </body>
 </html>
