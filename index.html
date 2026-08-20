@@ -1,1 +1,176 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siti Mukamilah, M.Pd. - Academic Blog</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
+        body {
+            background-color: #f4f6f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header / Hero Section */
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Container Layout */
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        /* Main Content Card */
+        .main-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .main-card h2 {
+            color: #1e3c72;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #2a5298;
+            padding-bottom: 8px;
+        }
+
+        .main-card p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        /* Sidebar Cards */
+        .sidebar-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+
+        .sidebar-card h3 {
+            color: #1e3c72;
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+        }
+
+        .badge-list {
+            list-style: none;
+        }
+
+        .badge-list li {
+            background: #eef2f5;
+            margin-bottom: 8px;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            color: #2a5298;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #1e3c72;
+            color: white;
+            margin-top: 50px;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive HP */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            header h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Profil Utama -->
+    <header>
+        <h1>Siti Mukamilah, M.Pd.</h1>
+        <p>Dosen Pendidikan Bahasa Inggris | Universitas Islam Madura</p>
+    </header>
+
+    <!-- Isi Utama Blog -->
+    <div class="container">
+        
+        <!-- Kolom Utama (Tentang Saya) -->
+        <main class="main-card">
+            <h2>Selamat Datang</h2>
+            <p>
+                Selamat datang di blog pribadi saya. Saya <strong>Siti Mukamilah, M.Pd.</strong>, seorang dosen Pendidikan Bahasa Inggris di Universitas Islam Madura (UIM) yang berdedikasi dalam pengajaran, pengembangan literasi bahasa, dan integrasi pembelajaran lintas disiplin.
+            </p>
+            <p>
+                Selain menjalankan Tri Dharma Perguruan Tinggi di program studi utama, saya juga mengemban tugas tambahan di <strong>Lembaga Penelitian dan Pengabdian kepada Masyarakat (LP2M)</strong> UIM untuk memfasilitasi riset inovatif serta pengabdian yang berdampak bagi masyarakat.
+            </p>
+            <p>
+                Di samping itu, saya dipercaya mengampu mata kuliah Bahasa Inggris di <strong>Fakultas Teknik</strong>, di mana saya fokus membekali mahasiswa dengan kemampuan <em>English for Specific Purposes (ESP)</em>—khususnya istilah teknis, pemahaman literatur ilmiah, dan komunikasi profesional di dunia keinsinyuran.
+            </p>
+        </main>
+
+        <!-- Sidebar (Informasi Ringkas) -->
+        <aside>
+            <div class="sidebar-card">
+                <h3>Bidang Faktual</h3>
+                <ul class="badge-list">
+                    <li>Pendidikan Bahasa Inggris</li>
+                    <li>English for Specific Purposes (ESP)</li>
+                    <li>LP2M UIM</li>
+                    <li>Fakultas Teknik</li>
+                </ul>
+            </div>
+
+            <div class="sidebar-card">
+                <h3>Kontak & Kampus</h3>
+                <p style="font-size: 0.9rem;">
+                    <strong>Universitas Islam Madura</strong><br>
+                    Jl. PP. Miftahul Ulum Bettet, Pamekasan, Jawa Timur.
+                </p>
+            </div>
+        </aside>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Siti Mukamilah, M.Pd. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
