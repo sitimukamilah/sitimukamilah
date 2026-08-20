@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Siti Mukamilah, M.Pd</title>
+    <title>Siti Mukamilah, M.Pd. | Digital Profile 3D</title>
     
     <!-- Font & Pustaka 3D (Three.js & Vanta.js) -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -250,12 +250,64 @@
             line-height: 1.4;
         }
 
+        /* Gaya Peta Kontak Interaktif */
+        .map-container {
+            width: 100%;
+            height: 200px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 15px 0 20px;
+            border: 1px solid rgba(56, 189, 248, 0.4);
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .map-container:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(56, 189, 248, 0.3);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            pointer-events: none; /* Mencegah geser peta kecil agar mudah diklik */
+        }
+
+        .map-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+        }
+
+        .map-container:hover .map-overlay {
+            background: rgba(15, 23, 42, 0.0);
+        }
+
+        .map-badge {
+            background: rgba(15, 23, 42, 0.85);
+            color: #38bdf8;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid #38bdf8;
+            backdrop-filter: blur(4px);
+        }
+
         /* Gaya Tombol Kontak */
         .contact-buttons {
             display: flex;
             gap: 12px;
             flex-wrap: wrap;
-            margin-top: 20px;
+            margin-top: 15px;
         }
 
         .contact-btn {
@@ -359,7 +411,7 @@
                 <!-- Item 1 -->
                 <div class="gallery-card">
                     <div class="gallery-image">
-                        <img src="foto.jpg" onerror="this.src='https://via.placeholder.com/300x200?text=Kegiatan+1'">
+                        <img src="mila.jpeg" onerror="this.src='https://via.placeholder.com/300x200?text=Kegiatan+1'">
                     </div>
                     <div class="gallery-info">
                         <h3>Pengajaran di Kelas</h3>
@@ -391,22 +443,32 @@
             </div>
         </section>
 
-        <!-- Section 3: Kontak & WhatsApp -->
+        <!-- Section 3: Kontak & Google Maps -->
         <section id="kontak" class="glass-card">
             <button class="close-btn" onclick="hideAllCards()">&times;</button>
             <h2 class="section-title">Kontak & Alamat Kampus</h2>
             
             <p style="color: #e2e8f0; margin-bottom: 5px;"><strong>Universitas Islam Madura (UIM)</strong></p>
-            <p style="color: #94a3b8; margin-bottom: 15px;">Jl. PP. Miftahul Ulum Bettet, Pamekasan, Jawa Timur</p>
+            <p style="color: #94a3b8; margin-bottom: 10px;">Jl. PP. Miftahul Ulum Bettet, Pamekasan, Jawa Timur</p>
+
+            <!-- Peta Google Maps (Diklik Buka Google Maps) -->
+            <a href="https://maps.google.com/?q=Universitas+Islam+Madura+Pamekasan" target="_blank" style="text-decoration: none;">
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.852174823812!2d113.46824967586524!3d-7.143209892861099!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd77dcb2c0a9ebd%3A0xb3bd62c26f6345d2!2sUniversitas%20Islam%20Madura!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" loading="lazy"></iframe>
+                    <div class="map-overlay">
+                        <span class="map-badge">📍 Buka Peta Google Maps</span>
+                    </div>
+                </div>
+            </a>
 
             <div class="contact-buttons">
                 <!-- Ubah nomor 6281234567890 sesuai nomor WA Anda -->
-                <a href="https://wa.me/6282331128137" target="_blank" class="contact-btn wa-btn">
+                <a href="https://wa.me/6281234567890" target="_blank" class="contact-btn wa-btn">
                     💬 Hubungi via WhatsApp
                 </a>
                 
                 <!-- Buka Gmail Langsung di Browser/Aplikasi -->
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=sittimukam@gmail.com" target="_blank" class="contact-btn email-btn">
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=emailanda@uim.ac.id" target="_blank" class="contact-btn email-btn">
                     ✉️ Kirim Email (Gmail)
                 </a>
             </div>
