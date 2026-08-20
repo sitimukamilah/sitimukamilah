@@ -196,30 +196,58 @@
             text-align: justify;
         }
 
-        /* Galeri Foto */
+        /* Galeri Foto Berkartu & Keterangan */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
             margin-top: 20px;
         }
 
-        .gallery-item {
+        .gallery-card {
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 12px;
             overflow: hidden;
-            height: 180px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: transform 0.3s ease, border-color 0.3s ease;
         }
 
-        .gallery-item img {
+        .gallery-card:hover {
+            transform: translateY(-5px);
+            border-color: #38bdf8;
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 160px;
+            overflow: hidden;
+        }
+
+        .gallery-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
 
-        .gallery-item:hover img {
-            transform: scale(1.1);
+        .gallery-card:hover .gallery-image img {
+            transform: scale(1.08);
+        }
+
+        .gallery-info {
+            padding: 15px;
+        }
+
+        .gallery-info h3 {
+            font-size: 1rem;
+            color: #38bdf8;
+            margin-bottom: 5px;
+        }
+
+        .gallery-info p {
+            font-size: 0.85rem;
+            color: #cbd5e1;
+            line-height: 1.4;
         }
 
         /* Footer */
@@ -282,15 +310,45 @@
             </div>
         </section>
 
-        <!-- Section 2: Galeri Foto -->
+        <!-- Section 2: Galeri Foto dengan Keterangan -->
         <section id="galeri" class="glass-card">
             <button class="close-btn" onclick="hideAllCards()">&times;</button>
             <h2 class="section-title">Galeri Kegiatan</h2>
             <p style="color: #94a3b8; margin-bottom: 15px;">Dokumentasi kegiatan akademik dan pengabdian masyarakat:</p>
+            
             <div class="gallery-grid">
-                <div class="gallery-item"><img src="mila.jpeg" onerror="this.src='https://via.placeholder.com/300x200?text=Kegiatan+1'"></div>
-                <div class="gallery-item"><img src="foto2.jpg" onerror="this.src='https://via.placeholder.com/300x200?text=Kegiatan+2'"></div>
-                <div class="gallery-item"><img src="foto3.jpg" onerror="this.src='https://via.placeholder.com/300x200?text=Kegiatan+3'"></div>
+                <!-- Item 1 -->
+                <div class="gallery-card">
+                    <div class="gallery-image">
+                        <img src="mila.jpeg" onerror="this.src='https://via.placeholder.com/300x200?text=Kegiatan+1'">
+                    </div>
+                    <div class="gallery-info">
+                        <h3>Pengajaran di Kelas</h3>
+                        <p>Kegiatan perkuliahan Bahasa Inggris untuk meningkatkan kemampuan bahasa mahasiswa.</p>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="gallery-card">
+                    <div class="gallery-image">
+                        <img src="foto2.jpg" onerror="this.src='https://via.placeholder.com/300x200?text=Kegiatan+2'">
+                    </div>
+                    <div class="gallery-info">
+                        <h3>Program LP2M</h3>
+                        <p>Pendampingan dan riset pengabdian masyarakat bersama tim LP2M UIM.</p>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="gallery-card">
+                    <div class="gallery-image">
+                        <img src="foto3.jpg" onerror="this.src='https://via.placeholder.com/300x200?text=Kegiatan+3'">
+                    </div>
+                    <div class="gallery-info">
+                        <h3>Kegiatan Akademik</h3>
+                        <p>Seminar, perancangan kurikulum, dan kolaborasi pembelajaran lintas jurusan.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
